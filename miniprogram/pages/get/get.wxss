@@ -1,0 +1,14 @@
+.sub{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100rpx;
+   width: 610rpx;
+   font-family: 'PingFang';
+   font-size: 40rpx;
+   color: #ffffff;
+   border: none;
+   border-radius: 35rpx;
+   
+   background: linear-gradient(to right, #70d88f, #167a23);
+ }

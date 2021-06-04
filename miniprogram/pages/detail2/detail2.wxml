@@ -1,0 +1,22 @@
+<!--pages/activitydetail/activitydetail.wxml-->
+<view class="top" style="height:{{ top }}px"></view>
+<view class="dimback">
+  <image class="backarrow" src="../../images/back.png" mode="aspectFill" bindtap="goindex"></image>
+  <image class="dim" mode="aspectFill" src="{{result[inin].img}}"></image>
+</view>
+<wxs module="tt">
+  var fix = function(e){
+  var res = Math.floor(e * 100) / 100
+  return res
+  }
+  module.exports.fix = fix;
+</wxs>
+<view class="center">
+  <view class="title">{{ result[inin].title}}</view>
+  <view class="time1">个性化培育方案生成 | {{ result[inin].name}}</view>
+</view>
+
+<view class="content">
+
+  <rich-text nodes="{{result[inin].des}}"></rich-text>
+</view>

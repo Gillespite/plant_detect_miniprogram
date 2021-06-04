@@ -1,0 +1,37 @@
+<!--pages/activitydetail/activitydetail.wxml-->
+<view class="top" style="height:{{ top }}px"></view>
+<view class="dimback">
+  <image class="backarrow" src="../../images/back.png" mode="aspectFill" bindtap="goindex"></image>
+  <image class="dim" mode="aspectFill" src="{{result[inin].baike_info.image_url}}"></image>
+</view>
+<wxs module="tt">
+  var fix = function(e){
+  var res = Math.floor(e * 100) / 100
+  return res
+  }
+  module.exports.fix = fix;
+</wxs>
+<view class="center">
+  <view class="title">{{ result[inin].name}}</view>
+  <view class="time1">置信度 - {{tt.fix(result[inin].score * 100)}}%</view>
+</view>
+
+<view class="content">
+
+  <view bindtap="go3" data-index="{{ index }}" wx:for="{{res}}" wx:key="index">
+    <a class="weui-media-box weui-media-box_appmsg">
+      <view class="weui-media-box__hd">
+        <image class="weui-media-box__thumb" src="{{item.img}}"
+          mode="aspectFill" alt></image>
+      </view>
+      <view class="weui-media-box__bd">
+        <h4 class="weui-media-box__title">{{item.title}}</h4>
+        <view class="weui-media-box__desc">{{item.des}}</view>
+      </view>
+    </a>
+  </view>
+
+
+
+  <rich-text nodes="{{result[inin].baike_info.description}}"></rich-text>
+</view>

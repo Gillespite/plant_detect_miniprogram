@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/send/send",
+    "pages/get/get",
+    "pages/detail/detail",
+    "pages/detail2/detail2"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "iconPath": "images/mag.png",
+        "selectedIconPath": "images/mag.png",
+        "pagePath": "pages/index/index",
+        "text": "识花"
+      },{
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

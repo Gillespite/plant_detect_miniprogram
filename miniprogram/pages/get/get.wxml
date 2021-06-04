@@ -1,0 +1,24 @@
+<!--pages/get/get.wxml-->
+<view>
+  <text>pages/get/get.wxml</text>
+</view>
+<view>
+  <text>pages/get/get.wxml</text>
+</view>
+<view>
+  <text>pages/get/get.wxml</text>
+</view>
+
+<view bindtap="go3" data-index="{{ index }}" wx:for="{{res}}" wx:key="index">
+
+  <view style="padding-top:10rpx;padding-bottom:10rpx;">
+    <button class="sub">
+      {{item.img}}
+    </button>
+  </view>
+
+</view>
+
+
+
+<button bindtap="get" type="primary">get</button>

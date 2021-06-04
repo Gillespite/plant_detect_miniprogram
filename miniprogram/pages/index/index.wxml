@@ -1,0 +1,91 @@
+<view class="weui-mask" wx:if="{{istrue}}">
+	<view class="fadeIn">
+		<view class="weui-dialog">
+			<view class="weui-dialog__bd">请先登录</view>
+			<view class="weui-dialog__ft">
+				<a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="go">确认</a>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="weui-mask" wx:if="{{istrue2}}">
+	<view class="fadeIn">
+		<view class="weui-dialog">
+			<view class="weui-dialog__bd">试用已结束,请下载完整版悠栽体验</view>
+			<view class="weui-dialog__ft">
+				<a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="go2">确认</a>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+
+
+<view class="page" style="padding-top:50rpx">
+	<view class="page__hd">
+		<view>
+			<image src="../../images/logo.png" mode="widthFix" style="width:200rpx;vertical-align:middle;"></image>
+			<view class="page__title" style="display:inline;vertical-align:middle;">体验版</view>
+		</view>
+		<view class="page__desc">植物识别 | 定制培育方案生成</view>
+	</view>
+
+	<view class="container">
+		<view class="pic">
+			<image wx:if="{{filePath}}" src="{{filePath}}" mode="aspectFill"></image>
+			<image wx:else src="../../images/test1.jpg" mode="aspectFill"></image>
+		</view>
+	</view>
+
+
+	<view class="page__bd">
+		<view class="weui-panel weui-panel_access" wx:if="{{result.length != 0}}">
+			<view class="weui-panel__hd">识别结果</view>
+
+			<wxs module="tt">
+				var fix = function(e){
+				var res = Math.floor(e * 100) / 100
+				return res
+				}
+				module.exports.fix = fix;
+			</wxs>
+			<view class="weui-panel__bd">
+				<view bindtap="go3" data-index="{{ index }}" wx:for="{{result}}" wx:key="index">
+					<a class="weui-media-box weui-media-box_appmsg">
+						<view class="weui-media-box__hd">
+							<image wx:if="{{item.baike_info.image_url}}" class="weui-media-box__thumb"
+								src="{{item.baike_info.image_url}}" mode="aspectFill" alt></image>
+							<image wx:else class="weui-media-box__thumb" src="../../images/cat.jpg" mode="aspectFill" alt></image>
+						</view>
+						<view class="weui-media-box__bd">
+							<h4 class="weui-media-box__title">{{item.name}} - {{tt.fix(item.score * 100)}}% </h4>
+							<view class="weui-media-box__desc">{{item.baike_info.description}}</view>
+						</view>
+					</a>
+				</view>
+
+				<!-- <a class="weui-media-box weui-media-box_appmsg">
+					<view class="weui-media-box__hd">
+						<image class="weui-media-box__thumb" src="{{init.image_url}}" mode="aspectFill" alt></image>
+					</view>
+					<view class="weui-media-box__bd">
+						<h4 class="weui-media-box__title">{{init.name}} - {{tt.fix(0.2345415 * 100)}} </h4>
+						<view class="weui-media-box__desc">{{init.description}}</view>
+					</view>
+				</a> -->
+
+			</view>
+
+		</view>
+	</view>
+
+	<button class="sub" bindtap="doUpload">
+		上传图片识别
+	</button>
+
+
+
+</view>

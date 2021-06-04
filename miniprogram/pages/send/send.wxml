@@ -1,0 +1,40 @@
+<!--pages/send/send.wxml-->
+<view>
+  <text>-</text>
+</view>
+<view>
+  <text>-</text>
+</view>
+<view>
+  <text>->提交到数据库</text>
+</view>
+<view>
+  <text style="color:red" >{{alt}}</text>
+</view>
+<view>
+  <text>-</text>
+</view>
+
+<form catchsubmit="formSubmit" catchreset="formReset">
+  <text>1.植物名称</text>
+  <input  name="name" placeholder="这是一个输入框" />
+  <text>2.标题</text>
+  <input name="title" placeholder="这是一个输入框" />
+  <text>3.选择图片</text>
+
+  <view>
+    <button bindtap="getpic">选择图片</button>
+  <image mode="aspectFill" style="width:100rpx;height:100rpx;" src="{{picid}}"></image>
+  <input name="img" disabled value="{{picid}}" />
+  </view>
+  
+
+  <text>4.概括</text>
+  <textarea name="des" auto-height maxlength="-1" placeholder="这是一个输入框" ></textarea>
+
+
+  <view class="btn-area">
+    <button style="margin: 30rpx 0" type="primary" formType="submit">提交数据</button>
+    <button style="margin: 30rpx 0" formType="reset">清空表单重新提交</button>
+  </view>
+</form>
